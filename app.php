@@ -19,7 +19,7 @@ $routes = require __DIR__ . "/routes/api.php";
 $app = AppFactory::createFromContainer($container);
 $routes($app);
 
-$server = new Server('127.0.0.1', 8000);
+$server = new Server('0.0.0.0', 8000);
 $server->set([
     // The number of worker processes to start, in our case all workers will handle http requests
     'worker_num' => 12,
