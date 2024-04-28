@@ -25,12 +25,10 @@ $server->set([
     'worker_num' => 12,
 ]);
 Swoole\Runtime::enableCoroutine($flags = SWOOLE_HOOK_ALL);
-$server->on('request', function ($request, $response) use ($app) {
-    (new OnRequest(
-        $app->getContainer()->get(PsrRequestFactory::class),
-        new SwooleResponseEmitter(),
-        $app
-    ))->__invoke($request, $response);
-});
+$server->on('request', new OnRequest(
+    $app->getContainer()->get(PsrRequestFactory::class),
+    new SwooleResponseEmitter(),
+    $app
+));
 
 $server->start();
