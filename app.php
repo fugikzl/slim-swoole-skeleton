@@ -24,7 +24,7 @@ $server->set([
     // The number of worker processes to start, in our case all workers will handle http requests
     'worker_num' => 12,
 ]);
-
+Swoole\Runtime::enableCoroutine($flags = SWOOLE_HOOK_ALL);
 $server->on('request', function ($request, $response) use ($app) {
     (new OnRequest(
         $app->getContainer()->get(PsrRequestFactory::class),
