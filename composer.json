@@ -1,9 +1,12 @@
 {
+    "description": "Slim skeleton with swoole",
+    "type": "project",
     "require": {
         "php-di/php-di": "^7.0",
         "slim/slim": "^4.13",
         "chubbyphp/chubbyphp-swoole-request-handler": "^1.4",
-        "slim/psr7": "^1.6"
+        "slim/psr7": "^1.6",
+        "ext-swoole": "*"
     },
     "autoload": {
         "psr-4": {
